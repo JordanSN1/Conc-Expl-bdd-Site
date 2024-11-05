@@ -47,7 +47,7 @@ INSERT INTO roles (nom_role) VALUES
     ('Modérateur'),
     ('Utilisateur');
 
--- Insérer des utilisateurs admin avec noms, prénoms, adresses
-INSERT INTO utilisateurs (nom, prenom, email, mot_de_passe, role_id, adresse) VALUES
-('Admin', 'Admin', 'Admin@phantomBurger.com', 'admin', 1, '20 bis jardins boieldieu, La defense, France'),  -- Admin
-('Moderateur', 'Moderateur', 'Moderateur@phantomBurger.com', 'Moderateur', 1, '20 bis jardins boieldieu, La defense, France'),  -- Moderateur
+-- Insérer des utilisateurs admin avec noms, prénoms
+INSERT INTO utilisateurs (nom, prenom, email, mot_de_passe, role_id) VALUES
+('Admin', 'Admin', 'Admin@phantomBurger.com', 'admin', 1),  -- Admin
+('Moderateur', 'Moderateur', 'Moderateur@phantomBurger.com', 'Moderateur', 1);  -- Moderateur
