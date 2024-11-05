@@ -3,4 +3,102 @@
     --color-brown: #baa893;
     --color-brown-darker: #361b13;
     --color-white: #f9fdf7;
+    --color-link-hover: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: var(--color-brown);
+    color: var(--color-white);
+    padding: 10px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+nav .logo {
+    flex: 0;
+}
+
+nav .logo img {
+    height: 80px;
+}
+
+nav .nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    justify-content: center;
+}
+
+nav .nav-links li {
+    margin: 0 15px;
+}
+
+nav .nav-links li a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+nav .nav-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-link-hover);
+    transition: width 0.3s ease-out;
+}
+
+nav .nav-links li a:hover::after {
+    width: 100%;
+}
+
+nav .user-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+a.panier,
+a.connect {
+    position: absolute;
+
+    background-color: var(--color-brown-darker);
+    color: var(--color-white);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-left: 20px;
+}
+
+a.panier:hover,
+a.connect:hover {
+    border-right: var(--color-green) 5px solid;
+    border-bottom: var(--color-green) 5px solid;
+    border-radius: 5px;
+
+    transform: translateY(-2px);
 }
