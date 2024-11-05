@@ -41,9 +41,13 @@ nav .logo img {
 }
 
 nav .nav-links {
+    position: absolute;
+    right: 33%;
     list-style: none;
+    text-transform: uppercase;
     display: flex;
     margin: 0;
+
     padding: 0;
     flex: 1;
     justify-content: center;
@@ -86,6 +90,7 @@ nav .user-actions {
 a.panier,
 a.connect {
     background-color: var(--color-brown-darker);
+    text-transform: uppercase;
     color: var(--color-white);
     padding: 10px 20px;
     text-decoration: none;
@@ -160,6 +165,7 @@ a.connect:hover {
 
     .mobile-panier,
     .mobile-connect {
+        text-transform: uppercase;
         display: block;
         background-color: var(--color-brown-darker);
         color: var(--color-white);
