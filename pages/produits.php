@@ -15,16 +15,36 @@
                 <img src="../assets/phantomBurgerlogo.png" alt="PhantomBurger logo">
             </div>
 
-            <ul class="nav-links">
+            <!-- Menu burger pour mobile -->
+            <div class="menu-toggle" id="menu-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <!-- Liens de navigation principaux -->
+            <ul class="nav-links" id="nav-links">
                 <li><a href="index.php">Accueil</a></li>
                 <li><a href="produits.php">Produits</a></li>
                 <li><a href="a-propos.php">À propos</a></li>
                 <li><a href="contact.php">Contact</a></li>
-            </ul>
-
-            <div class="user-actions">
+                <!-- Liens utilisateur (se connecter/panier) visibles uniquement en version mobile -->
+                <li class="mobile-user-actions"></li>
+                </li>
                 <?php
                 session_start();
+                if (isset($_SESSION['user_id'])) {
+                    echo '<a class="mobile-panier" href="panier.php">Panier</a>';
+                } else {
+                    echo '<a class="mobile-connect" href="login.php">Se connecter</a>';
+                }
+                ?>
+                </li>
+            </ul>
+
+            <!-- Liens utilisateur (se connecter/panier) visibles uniquement en version desktop -->
+            <div class="user-actions">
+                <?php
                 if (isset($_SESSION['user_id'])) {
                     echo '<a class="panier" href="panier.php">Panier</a>';
                 } else {
@@ -35,6 +55,15 @@
         </nav>
     </header>
 
+    <script>
+        // JavaScript pour gérer le menu burger
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active'); // Ajouter/retirer la classe 'active' pour ouvrir/fermer le menu
+        });
+    </script>
 </body>
 
 </html>

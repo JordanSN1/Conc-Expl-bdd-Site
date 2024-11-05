@@ -29,6 +29,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
+    position: relative;
 }
 
 nav .logo {
@@ -84,8 +85,6 @@ nav .user-actions {
 
 a.panier,
 a.connect {
-    position: absolute;
-
     background-color: var(--color-brown-darker);
     color: var(--color-white);
     padding: 10px 20px;
@@ -99,6 +98,76 @@ a.connect:hover {
     border-right: var(--color-green) 5px solid;
     border-bottom: var(--color-green) 5px solid;
     border-radius: 5px;
-
     transform: translateY(-2px);
+}
+
+/* Style pour le menu burger */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    width: 30px;
+    height: 21px;
+}
+
+.menu-toggle .bar {
+    width: 30px;
+    height: 4px;
+    background-color: var(--color-white);
+    border-radius: 10px;
+}
+
+.mobile-panier,
+.mobile-connect {
+    display: none;
+}
+
+/* Affichage du menu burger et du menu principal sur mobile */
+@media (max-width: 768px) {
+    nav .nav-links {
+        display: none;
+        /* Masquer le menu de navigation par défaut */
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-brown);
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    nav .nav-links.active {
+        display: flex;
+        /* Afficher le menu quand la classe 'active' est ajoutée */
+    }
+
+    nav .nav-links li {
+        margin: 10px 0;
+    }
+
+    nav .user-actions {
+        display: none;
+        /* Masquer les boutons de connexion et panier sur mobile */
+    }
+
+    .menu-toggle {
+        display: flex;
+        /* Afficher le burger menu */
+    }
+
+    .mobile-panier,
+    .mobile-connect {
+        display: block;
+        background-color: var(--color-brown-darker);
+        color: var(--color-white);
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-left: 20px;
+    }
+
+
 }
