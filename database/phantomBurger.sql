@@ -51,3 +51,16 @@ INSERT INTO roles (nom_role) VALUES
 INSERT INTO utilisateurs (nom, prenom, email, mot_de_passe, role_id) VALUES
 ('Admin', 'Admin', 'Admin@phantomBurger.com', 'admin', 1),  -- Admin
 ('Moderateur', 'Moderateur', 'Moderateur@phantomBurger.com', 'Moderateur', 1);  -- Moderateur
+
+-- Création des utilisateurs MySQL
+CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin_password';
+CREATE USER 'moderateur'@'localhost' IDENTIFIED BY 'moderateur_password';
+
+-- Attribution des privilèges à l'utilisateur admin
+GRANT ALL PRIVILEGES ON phantomBurger.* TO 'admin'@'localhost';
+
+-- Attribution des privilèges à l'utilisateur moderateur
+GRANT INSERT, UPDATE, DELETE ON phantomBurger.* TO 'moderateur'@'localhost';
+
+-- Appliquer les changements
+FLUSH PRIVILEGES;
