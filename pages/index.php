@@ -20,3 +20,32 @@
 </body>
 
 </html>
+<?php
+include 'scripts/conn.php';
+
+
+session_start();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $user = $_POST['username'];
+    $pass = $_POST['password'];
+
+    $sql = "SELECT id FROM users WHERE username = '$user' AND password = '$pass'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $_SESSION['login_user'] = $user;
+        header("location: welcome.php");
+    } else {
+        $error = "Your Login Name or Password is invalid";
+    }
+}
+?>
+
+<form action="" method="post">
+    <label>Username :</label>
+    <input type="text" name="username" required>
+    <label>Password :</label>
+    <input type="password" name="password" required>
+    <input type="submit" value="Login">
+</form>
