@@ -97,7 +97,7 @@
                     </div>
                     <button class="btn">Log in</button>
                     <div class="account-creation">
-                        <span>Vous n'avez pas de compte ? <a href="#" class="inscr-btn">S'inscrire </a></span>
+                        <span>Vous n'avez pas de compte ? <a href="../pages/inscription.php" class="inscr-btn">S'inscrire </a></span>
                     </div>
                 </form>
             </div>
