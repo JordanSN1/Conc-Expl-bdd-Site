@@ -58,7 +58,6 @@
     </header>
 
 
+    <script src="../src/scripts.js"></script>
 </body>
-<script src="../src/scripts.js"></script>
-
 </html>
