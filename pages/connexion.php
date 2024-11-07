@@ -32,7 +32,7 @@
             <!-- Liens de navigation principaux -->
             <ul class="nav-links" id="nav-links">
                 <li><a href="index.php">Accueil</a></li>
-                <li><a href="produits.php">Produits</a></li>
+                <li><a href="../produits/produits.php">Produits</a></li>
                 <li><a href="a-propos.php">À propos</a></li>
                 <li><a href="contact.php">Contact</a></li>
                 <!-- Liens utilisateur (se connecter/panier) visibles uniquement en version mobile -->
