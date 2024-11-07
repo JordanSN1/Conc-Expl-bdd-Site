@@ -1,3 +1,6 @@
+CREATE DATABASE IF NOT EXISTS phantomburger;
+use phantomburger;
+
 -- phpMyAdmin SQL Dump
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
@@ -11,11 +14,7 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+SET NAMES utf8mb4;
 
 --
 -- Base de données : `phantomburger`
@@ -23,10 +22,7 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
---
 -- Structure de la table `commandes`
---
-
 DROP TABLE IF EXISTS `commandes`;
 CREATE TABLE IF NOT EXISTS `commandes` (
   `commande_id` int NOT NULL AUTO_INCREMENT,
@@ -41,25 +37,42 @@ CREATE TABLE IF NOT EXISTS `commandes` (
 
 -- --------------------------------------------------------
 
---
--- Structure de la table `products`
---
-
-DROP TABLE IF EXISTS `products`;
-CREATE TABLE IF NOT EXISTS `products` (
-  `id` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `burgers` (
+  `burger_id` int NOT NULL AUTO_INCREMENT,
   `picture` varchar(255) DEFAULT NULL,
   `name` varchar(100) DEFAULT NULL,
   `description` text,
-  `price` decimal(10,2) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `prix` decimal(10,2) DEFAULT NULL,
+  PRIMARY KEY (`burger_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
---
--- Déchargement des données de la table `products`
---
+-- Création de la table `boissons`
+DROP TABLE IF EXISTS `boissons`;
+CREATE TABLE IF NOT EXISTS `boissons` (
+  `boisson_id` int NOT NULL AUTO_INCREMENT,
+  `picture` varchar(255) DEFAULT NULL,
+  `name` varchar(100) NOT NULL,
+  `description` text,
+  `prix` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`boisson_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-INSERT INTO `products` (`id`, `picture`, `name`, `description`, `price`) VALUES
+-- Inserts pour la table `boissons`
+INSERT INTO `boissons` (`boisson_id`, `picture`, `name`, `description`, `prix`) VALUES
+(1, 'coca.jpg', 'Coca-Cola', 'Boisson gazeuse classique', '2.50'),
+(2, 'sprite.jpg', 'Sprite', 'Boisson gazeuse au citron', '2.50'),
+(3, 'fanta.jpg', 'Fanta', 'Boisson gazeuse à l\'orange', '2.50'),
+(4, 'eau_minerale.jpg', 'Eau Minérale', 'Eau plate, rafraîchissante', '1.50'),
+(5, 'ice_tea.jpg', 'Ice Tea', 'Thé glacé sucré', '2.80'),
+(6, 'red_bull.jpg', 'Red Bull', 'Boisson énergisante', '3.50'),
+(7, 'jus_orange.jpg', 'Jus d\'Orange', 'Jus frais d\'orange', '3.00'),
+(8, 'champagne.jpg', 'Champagne', 'Boisson alcoolisée raffinée', '15.00'),
+(9, 'eau_gazeuse.jpg', 'Eau Gazeuse', 'Eau avec gaz', '2.00'),
+(10, 'limonade.jpg', 'Limonade', 'Boisson douce au citron', '2.20');
+
+
+-- Déchargement des données de la table `produits`
+INSERT INTO `burgers` (`burger_id`, `picture`, `name`, `description`, `prix`) VALUES
 (1, 'burger_classic.jpg', 'Classic Burger', 'Un burger intemporel avec steak juteux, fromage fondant, laitue croquante, tomates fraîches et sauce spéciale.', '8.99'),
 (2, 'burger_cheese.jpg', 'Cheeseburger', 'Délicieux cheeseburger avec viande grillée, fromage fondant et légumes frais.', '9.49'),
 (3, 'burger_bbq.jpg', 'BBQ Burger', 'Explosion de saveurs avec sauce barbecue, oignons caramélisés et bacon croustillant.', '10.99'),
@@ -85,27 +98,7 @@ INSERT INTO `products` (`id`, `picture`, `name`, `description`, `price`) VALUES
 
 -- --------------------------------------------------------
 
---
--- Structure de la table `produits`
---
-
-DROP TABLE IF EXISTS `produits`;
-CREATE TABLE IF NOT EXISTS `produits` (
-  `produit_id` int NOT NULL AUTO_INCREMENT,
-  `nom` varchar(100) NOT NULL,
-  `description` text,
-  `quantite_disponible` int NOT NULL,
-  `prix` decimal(10,2) NOT NULL,
-  `date_ajout` datetime DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`produit_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `roles`
---
-
 DROP TABLE IF EXISTS `roles`;
 CREATE TABLE IF NOT EXISTS `roles` (
   `role_id` int NOT NULL AUTO_INCREMENT,
@@ -114,10 +107,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
   UNIQUE KEY `nom_role` (`nom_role`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
---
 -- Déchargement des données de la table `roles`
---
-
 INSERT INTO `roles` (`role_id`, `nom_role`) VALUES
 (1, 'Admin'),
 (2, 'Modérateur'),
@@ -125,10 +115,7 @@ INSERT INTO `roles` (`role_id`, `nom_role`) VALUES
 
 -- --------------------------------------------------------
 
---
 -- Structure de la table `utilisateurs`
---
-
 DROP TABLE IF EXISTS `utilisateurs`;
 CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `utilisateur_id` int NOT NULL AUTO_INCREMENT,
@@ -143,15 +130,40 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   KEY `role_id` (`role_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
---
 -- Déchargement des données de la table `utilisateurs`
---
-
 INSERT INTO `utilisateurs` (`utilisateur_id`, `nom`, `prenom`, `email`, `mot_de_passe`, `role_id`, `date_inscription`) VALUES
 (1, 'Admin', 'Admin', 'Admin@phantomBurger.com', 'admin', 1, '2024-11-05 14:48:01'),
 (2, 'Moderateur', 'Moderateur', 'Moderateur@phantomBurger.com', 'Moderateur', 1, '2024-11-05 14:48:01');
-COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+-- --------------------------------------------------------
+
+-- Structure de la table `menus`
+DROP TABLE IF EXISTS `menus`;
+CREATE TABLE IF NOT EXISTS `menus` (
+  `menu_id` int NOT NULL AUTO_INCREMENT,
+  `nom_menu` varchar(100) NOT NULL,
+  `description` text,
+  `prix` decimal(10,2) NOT NULL,
+  `burger_id` int NOT NULL,
+  `boisson_id` int NOT NULL,
+  PRIMARY KEY (`menu_id`),
+  CONSTRAINT `fk_burger` FOREIGN KEY (`burger_id`) REFERENCES `burgers`(`burger_id`) ON DELETE CASCADE,
+  CONSTRAINT `fk_boisson` FOREIGN KEY (`boisson_id`) REFERENCES `boissons`(`boisson_id`) ON DELETE CASCADE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+-- Inserts pour la table `menus`
+INSERT INTO `menus` (`nom_menu`, `description`, `prix`, `burger_id`, `boisson_id`) VALUES
+('Menu Classique', 'Un menu avec un burger classique et une boisson gazeuse', 12.99, 1, 1), -- Burger Classic et Boisson Coca-Cola
+('Menu Cheeseburger', 'Un cheeseburger accompagné d\'une boisson légère', 13.49, 2, 2), -- Cheeseburger et Boisson Sprite
+('Menu BBQ', 'Un burger BBQ avec une boisson sucrée', 14.49, 3, 3), -- BBQ Burger et Boisson Fanta
+('Menu Veggie', 'Un menu végétarien avec un burger veggie et une boisson sans sucre', 13.29, 4, 4), -- Veggie Burger et Boisson Eau Minérale
+('Menu Spicy', 'Burger épicé accompagné d\'une boisson rafraîchissante', 14.99, 5, 5), -- Spicy Burger et Boisson Ice Tea
+('Menu Double Cheeseburger', 'Double Cheeseburger avec une boisson énergisante', 16.99, 6, 6), -- Double Cheeseburger et Boisson Red Bull
+('Menu Bacon', 'Burger au bacon avec une boisson froide et fruitée', 15.49, 7, 7), -- Bacon Burger et Boisson Jus d\'orange
+('Menu Truffle', 'Un burger gourmet avec une boisson raffinée', 19.99, 8, 8), -- Truffle Burger et Boisson Champagne
+('Menu Chicken', 'Burger de poulet et une boisson légère pour un repas sain', 13.99, 9, 9), -- Chicken Burger et Boisson Eau gazeuse
+('Menu Fish', 'Burger de poisson accompagné d\'une boisson douce', 12.49, 10, 10); -- Fish Burger et Boisson Limonade
+
+
+COMMIT;
