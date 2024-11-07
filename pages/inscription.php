@@ -87,7 +87,6 @@
                         <label>Prenom</label>
                         <i class='bx bxs-lock-alt'></i>
                     </div>
-                    </div>
                     <button class="btn">Log in</button>
                     <div class="account-creation">
                         <span><a href="../pages/connexion.php" class="inscr-btn">Se connecter !</a></span>
