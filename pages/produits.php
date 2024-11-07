@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style.css">
+
     <title>Produits - PhantomBurger</title>
 </head>
 
@@ -56,15 +57,8 @@
         </nav>
     </header>
 
-    <script>
-        // JavaScript pour gérer le menu burger
-        const menuToggle = document.getElementById('menu-toggle');
-        const navLinks = document.getElementById('nav-links');
 
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active'); // Ajouter/retirer la classe 'active' pour ouvrir/fermer le menu
-        });
-    </script>
 </body>
+<script src="../src/scripts.js"></script>
 
 </html>

@@ -62,16 +62,8 @@
             </div>
         </nav>
     </header>
+    <script src="../src/scripts.js"></script>
 
-    <script>
-        // JavaScript pour gérer le menu burger
-        const menuToggle = document.getElementById('menu-toggle');
-        const navLinks = document.getElementById('nav-links');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active'); // Ajouter/retirer la classe 'active' pour ouvrir/fermer le menu
-        });
-    </script>
     <div class="wrapper">
         <div class="container">
             <div class="form-box">
@@ -79,8 +71,8 @@
                     <h2>Login</h2>
                     <div class="input-box">
                         <input type="text" required>
-                        <label>Username</label>
-                        <i class='bx bxs-user'></i>
+                        <label>Email</label>
+                        <i class='bx bx-envelope'></i>
                     </div>
                     <div class="input-box">
                         <input type="password" required>
