@@ -319,6 +319,7 @@ a.connect:hover {
     font-weight: 600;
 }
 
+
 @media (max-width: 768px) {
     .container {
         height: 500px;

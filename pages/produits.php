@@ -49,7 +49,7 @@
                 if (isset($_SESSION['user_id'])) {
                     echo '<a class="panier" href="panier.php">Panier</a>';
                 } else {
-                    echo '<a class="connect" href="login.php">connecter</a>';
+                    echo '<a class="connect" href="connexion.php">connecter</a>';
                 }
                 ?>
             </div>
