@@ -1,19 +1,10 @@
-/* Réinitialisation de style de base */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 /* Conteneur principal pour la liste de produits */
 .product-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
     gap: 35px;
     padding: 20px;
-    max-width: 1500px; 
+    max-width: 1500px;
     margin: auto;
 }
 
@@ -48,11 +39,12 @@
     object-fit: contain;
 }
 
-/* Style pour le titre du produit */
-.product-title {
-    font-size: 1em;
+/* Style pour le nom du produit (lien sans soulignement) */
+.product-card a {
+    text-decoration: none !important; /* Supprime le soulignement */
+    color: #7c9c5f; /* Couleur du texte */
     font-weight: bold;
-    color: #7c9c5f;
+    font-size: 1em;
     text-align: center;
     margin: 10px 0 5px 0;
 }
@@ -88,7 +80,7 @@
 
 /* Style pour disposer les images sur une seule ligne */
 .picture1, .picture1_2, .picture1_3 {
-    width: 20%;
+    width: 30%; /* Ajustez ce pourcentage selon l’espace disponible */
     display: inline-block;
     text-align: center;
     margin: 0 1rem;
@@ -96,11 +88,13 @@
 
 .picture1 img, .picture1_2 img, .picture1_3 img {
     width: 100%;
+    height: 200px; /* Hauteur fixe pour uniformiser la taille */
+    object-fit: cover; /* Ajuste l’image sans déformer les proportions */
     border: 2px solid #7c9c5f;
     border-radius: 2%;
 }
 
-/* CTA section */
+/* Section d’appel à l’action (CTA) */
 .cta-section {
     background-color: #baa893;
     color: #361b13;
@@ -148,23 +142,8 @@
     border-radius: 8px;
 }
 
-/* Footer images */
+/* Images dans le pied de page */
 .picture3 img {
     width: 100%;
     border-radius: 8px;
-}
-/* Style pour disposer les images sur une seule ligne avec une taille uniforme */
-.picture1, .picture1_2, .picture1_3 {
-    width: 30%; /* Ajustez ce pourcentage en fonction de l’espace disponible */
-    display: inline-block;
-    text-align: center;
-    margin: 0 1rem;
-}
-
-.picture1 img, .picture1_2 img, .picture1_3 img {
-    width: 100%;
-    height: 200px; /* Hauteur fixe pour uniformiser la taille */
-    object-fit: cover; /* Ajuste l’image sans déformer les proportions */
-    border: 2px solid #7c9c5f;
-    border-radius: 2%;
 }
