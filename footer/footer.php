@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Footer</title>
     <link rel="stylesheet" href="../footer/footer.css">
 </head>
+
 <body>
 
     <footer class="footer">
@@ -14,7 +16,7 @@
                 <h3>Notre carte</h3>
                 <ul>
                     <li>En ce moment</li>
-                    <li>Poulets & buckets</li>
+                    <li>Boissons et Frites</li>
                     <li>Burgers</li>
                     <li>Wraps & salades</li>
                     <li>Menu enfant</li>
@@ -28,7 +30,7 @@
                 <h3>Notre Entreprise</h3>
                 <ul>
                     <li>Nos engagements</li>
-                    <li>Poulet</li>
+                    <li>Burgers</li>
                     <li>Qualité</li>
                     <li>Équipes</li>
                     <li>Planète</li>
@@ -42,14 +44,14 @@
                     <li>F.A.Q</li>
                     <li>Informations allergènes</li>
                     <li>Informations nutri score</li>
-                    <li>Origines du poulet KFC</li>
+                    <li>Origines des ingredients</li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Nos Services</h3>
                 <ul>
                     <li>Click and Collect</li>
-                    <li>Colonel Club </li>
+                    <li>Phantom Club </li>
                     <li>Application </li>
                     <li>Coupons</li>
                     <li>Offre étudiants</li>
@@ -76,7 +78,7 @@
                     <span class="icon">🎥</span>
 
                 </div>
-               
+
             </div>
         </div>
         <div class="footer-bottom">
@@ -85,4 +87,5 @@
     </footer>
 
 </body>
+
 </html>

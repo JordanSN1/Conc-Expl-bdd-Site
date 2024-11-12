@@ -1,15 +1,7 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
-
-
 .footer {
   background-color: #baa893;
   padding: 40px;
+  width: 100%;
 }
 
 .footer-container {

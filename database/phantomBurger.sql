@@ -44,14 +44,7 @@ CREATE TABLE IF NOT EXISTS `boissons` (
 INSERT INTO `boissons` (`boisson_id`, `picture`, `name`, `description`, `prix`) VALUES
 (1, 'coca.jpg', 'Coca-Cola', 'Boisson gazeuse classique', '2.50'),
 (2, 'sprite.jpg', 'Sprite', 'Boisson gazeuse au citron', '2.50'),
-(3, 'fanta.jpg', 'Fanta', 'Boisson gazeuse à l\'orange', '2.50'),
-(4, 'eau_minerale.jpg', 'Eau Minérale', 'Eau plate, rafraîchissante', '1.50'),
-(5, 'ice_tea.jpg', 'Ice Tea', 'Thé glacé sucré', '2.80'),
-(6, 'red_bull.jpg', 'Red Bull', 'Boisson énergisante', '3.50'),
-(7, 'jus_orange.jpg', 'Jus d\'Orange', 'Jus frais d\'orange', '3.00'),
-(8, 'champagne.jpg', 'Champagne', 'Boisson alcoolisée raffinée', '15.00'),
-(9, 'eau_gazeuse.jpg', 'Eau Gazeuse', 'Eau avec gaz', '2.00'),
-(10, 'limonade.jpg', 'Limonade', 'Boisson douce au citron', '2.20');
+(3, 'fanta.jpg', 'Fanta', 'Boisson gazeuse à l\'orange', '2.50');
 
 -- --------------------------------------------------------
 
@@ -76,27 +69,7 @@ CREATE TABLE IF NOT EXISTS `burgers` (
 INSERT INTO `burgers` (`burger_id`, `picture`, `name`, `description`, `prix`) VALUES
 (1, 'burger_classic.jpg', 'Classic Burger', 'Un burger intemporel avec steak juteux, fromage fondant, laitue croquante, tomates fraîches et sauce spéciale.', '8.99'),
 (2, 'burger_cheese.jpg', 'Cheeseburger', 'Délicieux cheeseburger avec viande grillée, fromage fondant et légumes frais.', '9.49'),
-(3, 'burger_bbq.jpg', 'BBQ Burger', 'Explosion de saveurs avec sauce barbecue, oignons caramélisés et bacon croustillant.', '10.99'),
-(4, 'burger_veggie.jpg', 'Veggie Burger', 'Option végétarienne avec steak de légumes grillés, garniture fraîche et sauce crémeuse.', '8.49'),
-(5, 'burger_spicy.jpg', 'Spicy Burger', 'Steak épicé avec sauce piquante et jalapeños pour les amateurs de sensations fortes.', '9.99'),
-(6, 'burger_double_cheese.jpg', 'Double Cheeseburger', 'Deux steaks juteux avec double fromage, laitue et tomates pour un plaisir maximal.', '11.99'),
-(7, 'burger_bacon.jpg', 'Bacon Burger', 'Burger avec steak, bacon croustillant, fromage et sauce onctueuse.', '10.49'),
-(8, 'burger_truffle.jpg', 'Truffle Burger', 'Burger gourmet avec huile de truffe, fromage affiné et légumes frais.', '14.99'),
-(9, 'burger_chicken.jpg', 'Chicken Burger', 'Burger de poulet tendre avec mayonnaise légère et salade croquante.', '7.99'),
-(10, 'burger_fish.jpg', 'Fish Burger', 'Filet de poisson pané, sauce tartare et laitue fraîche.', '8.49'),
-(11, 'burger_avocado.jpg', 'Avocado Burger', 'Steak juteux avec avocat crémeux, tomates fraîches et laitue croquante.', '12.49'),
-(12, 'burger_mushroom.jpg', 'Mushroom Burger', 'Burger aux champignons grillés, fromage fondu et sauce crémeuse.', '9.99'),
-(13, 'burger_hawaiian.jpg', 'Hawaiian Burger', 'Burger sucré-salé avec ananas grillé, fromage et sauce barbecue.', '10.49'),
-(14, 'burger_smash.jpg', 'Smash Burger', 'Burger fin et croustillant avec fromage fondu et pickles.', '8.99'),
-(15, 'burger_blue_cheese.jpg', 'Blue Cheese Burger', 'Burger au fromage bleu intense, garniture classique et sauce spéciale.', '11.49'),
-(16, 'burger_egg.jpg', 'Egg Burger', 'Steak garni d\'un œuf poché, de fromage fondant et de bacon croustillant.', '10.99'),
-(17, 'burger_buffalo.jpg', 'Buffalo Burger', 'Burger avec viande de buffle, fromage et légumes frais.', '12.99'),
-(18, 'burger_swiss.jpg', 'Swiss Burger', 'Burger classique avec fromage suisse et champignons grillés.', '10.49'),
-(19, 'burger_italian.jpg', 'Italian Burger', 'Burger inspiré de l\'Italie avec mozzarella, tomates séchées et pesto.', '11.99'),
-(20, 'burger_mexican.jpg', 'Mexican Burger', 'Burger épicé avec guacamole, salsa et jalapeños.', '10.99'),
-(21, 'burger_algérien.jpg', 'Algérien Burger', 'Burger épicé avec guacamole, salsa et jalapeños.', '100.99'),
-(22, 'burger_marocain.jpg', 'Marocain Burger', 'Burger épicé avec guacamole, salsa et jalapeños.', '0.99'),
-(23, 'burger_pedro.jpg', 'pedro pedro ', 'Burger épicé avec guacamole, salsa et jalapeños.', '152500.00');
+(3, 'burger_bbq.jpg', 'BBQ Burger', 'Explosion de saveurs avec sauce barbecue, oignons caramélisés et bacon croustillant.', '10.99');
 
 -- --------------------------------------------------------
 
@@ -156,7 +129,8 @@ INSERT INTO `comments` (`comment_id`, `burger_id`, `username`, `comment_text`, `
 DROP TABLE IF EXISTS `menus`;
 CREATE TABLE IF NOT EXISTS `menus` (
   `menu_id` int NOT NULL AUTO_INCREMENT,
-  `nom_menu` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `picture` varchar(255) DEFAULT NULL,
   `description` text,
   `prix` decimal(10,2) NOT NULL,
   `burger_id` int NOT NULL,
@@ -170,17 +144,10 @@ CREATE TABLE IF NOT EXISTS `menus` (
 -- Déchargement des données de la table `menus`
 --
 
-INSERT INTO `menus` (`menu_id`, `nom_menu`, `description`, `prix`, `burger_id`, `boisson_id`) VALUES
-(1, 'Menu Classique', 'Un menu avec un burger classique et une boisson gazeuse', '12.99', 1, 1),
-(2, 'Menu Cheeseburger', 'Un cheeseburger accompagné d\'une boisson légère', '13.49', 2, 2),
-(3, 'Menu BBQ', 'Un burger BBQ avec une boisson sucrée', '14.49', 3, 3),
-(4, 'Menu Veggie', 'Un menu végétarien avec un burger veggie et une boisson sans sucre', '13.29', 4, 4),
-(5, 'Menu Spicy', 'Burger épicé accompagné d\'une boisson rafraîchissante', '14.99', 5, 5),
-(6, 'Menu Double Cheeseburger', 'Double Cheeseburger avec une boisson énergisante', '16.99', 6, 6),
-(7, 'Menu Bacon', 'Burger au bacon avec une boisson froide et fruitée', '15.49', 7, 7),
-(8, 'Menu Truffle', 'Un burger gourmet avec une boisson raffinée', '19.99', 8, 8),
-(9, 'Menu Chicken', 'Burger de poulet et une boisson légère pour un repas sain', '13.99', 9, 9),
-(10, 'Menu Fish', 'Burger de poisson accompagné d\'une boisson douce', '12.49', 10, 10);
+INSERT INTO `menus` (`menu_id`, `name`, `picture`, `description`, `prix`, `burger_id`, `boisson_id`) VALUES
+(1, 'Menu Classique', NULL, 'Un menu avec un burger classique et une boisson gazeuse', '12.99', 1, 1),
+(2, 'Menu Cheeseburger', NULL, 'Un cheeseburger accompagné d\'une boisson légère', '13.49', 2, 2),
+(3, 'Menu BBQ', NULL, 'Un burger BBQ avec une boisson sucrée', '14.49', 3, 3);
 
 -- --------------------------------------------------------
 
