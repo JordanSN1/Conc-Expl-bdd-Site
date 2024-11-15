@@ -317,3 +317,18 @@ a.connect:hover {
     color: var(--color-green);
     font-weight: 600;
 }
+
+.wrapper1 {
+    background: url(../assets/nabil.webp) no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+
+
