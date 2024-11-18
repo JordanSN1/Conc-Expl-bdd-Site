@@ -73,6 +73,6 @@
 </body>
 <footer>
         <?php include("../footer/footer.php"); ?>
-    </footer>
+</footer>
 
 </html>
