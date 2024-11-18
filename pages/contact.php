@@ -68,7 +68,7 @@ $success = isset($_GET['success']) ? $_GET['success'] : 0;
 
 
                 <div>
-                    <img src="../assets/contact.gif" alt="">
+                    <img src="../img/contact.gif" alt="">
                 </div>
             </div>
         </div>
