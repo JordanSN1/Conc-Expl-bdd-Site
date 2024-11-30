@@ -1,0 +1,67 @@
+/* Conteneur principal pour la liste de produits */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
+    gap: 35px;
+    padding: 20px;
+    max-width: 1500 px; 
+    margin: auto;
+}
+
+/* Style pour chaque carte de produit */
+.product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin-top: 100px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+/* Style pour l'image du produit */
+.product-image {
+    width: 120px;
+    height: 150px;
+    margin-bottom: 10px;
+}
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Style pour le titre du produit */
+.product-title {
+    font-size: 1em;
+    font-weight: bold;
+    color: #7c9c5f;
+    text-align: center;
+    margin: 10px 0 5px 0;
+    font-family: 'Sour Gummy', cursive;
+}
+
+/* Style pour le prix */
+.price {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #baa893 ;
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: 'Sour Gummy', cursive;
+}
+
+/* Style pour la description */
+.description {
+    font-size: 0.9em;
+    color: #361b13;
+    text-align: center;
+    line-height: 1.5;
+    font-family: 'Sour Gummy', cursive;
+}
